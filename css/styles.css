@@ -219,3 +219,28 @@ main {
     background-color: var(--type-fairy);
     color: var(--clr-black);
 }
+
+
+/* -----------BOTON DE VOLVER ------------------------- */
+
+.volver-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.btn-volver {
+    background-color: var(--clr-gray);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: var(--clr-black);
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-volver:hover {
+    background-color: var(--clr-gray-dark);
+}
+
+/* ------------------------------------ */

@@ -80,3 +80,6 @@ if (document.getElementById('detallePokemon')) {
         console.log("No se encontró el ID del Pokémon en la URL");
     }
 }
+
+// -------BUSCADOR--------------------------
+
