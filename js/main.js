@@ -1,9 +1,8 @@
 const listaPokemon = document.querySelector("#listaPokemon");
 const detallePokemon = document.querySelector("#detallePokemon");
-const botonesHeader = document.querySelectorAll(".btn-header");
 let URL = "https://pokeapi.co/api/v2/pokemon/";
 
-
+arrHistorial = [];
 
 
 //recorremos hasta 100 
@@ -35,50 +34,25 @@ function mostrarPokemon(poke) {
             </div>
         </div>
     `;
+    
+    a.addEventListener('click', function() {
+        localStorage.setItem('selectedPokemon', JSON.stringify(poke));
+        histo(poke);
+    });
 
-    listaPokemon.append(a);
+    listaPokemon.appendChild(a);
 }
 
 
 
-// aca mostramos solo 1 pokemon dsps de clickear uno, lo buscamos mediante el ID de la URL
-function mostrarDetallePokemon(poke) {
-    const container = document.getElementById('detallePokemon');
-    let tipos = poke.types.map((type) => `<p class="${type.type.name} tipo">${type.type.name}</p>`);
-    tipos = tipos.join('');
 
-    container.innerHTML = `
-        <div class="pokemon">
-            <div class="pokemon-imagen">
-                <img src="${poke.sprites.other["official-artwork"].front_default}" alt="${poke.name}">
-            </div>
-            <div class="pokemon-info">
-                <div>
-                    <h1>${poke.name}</h1>
-                    <p>ID: #${poke.id}</p>
-                </div>
-                <div class="pokemon-tipos">
-                ${tipos}
-                </div>
-                <div class="pokemon-stats">
-                <p class="stat">${poke.height/10}m</p>
-                <p class="stat">${poke.weight/10}kg</p>
-                </div>
-            </div>
-        </div>
-    `;
-}
+//----------Hitorial----
 
-if (document.getElementById('detallePokemon')) {
-    const params = new URLSearchParams(window.location.search);
-    const pokemonId = params.get('id');
-    if (pokemonId) {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
-            .then(response => response.json())
-            .then(data => mostrarDetallePokemon(data));
-    } else {
-        console.log("No se encontró el ID del Pokémon en la URL");
-    }
-}
+// const histo = (item) => {
+//     arrHistorial.push(item);
+//     localStorage.setItem('historial', JSON.stringify(arrHistorial));
+// }
 
-// -------HISTORIAL--------------------------
+
+
+
