@@ -2,10 +2,10 @@ const listaPokemon = document.querySelector("#listaPokemon");
 const detallePokemon = document.querySelector("#detallePokemon");
 let URL = "https://pokeapi.co/api/v2/pokemon/";
 
-arrHistorial = [];
+// Cargar historial desde localStorage
+let historial = JSON.parse(localStorage.getItem('historial')) || [];
 
-
-//recorremos hasta 100 
+// Recorrer la API y mostrar los Pokémon
 for (let i = 1; i <= 100; i++) {
     fetch(URL + i)
         .then((response) => response.json())
@@ -18,7 +18,7 @@ function mostrarPokemon(poke) {
 
     let pokeId = poke.id.toString();
     const a = document.createElement("a");
-    a.href = `detalle.html?id=${pokeId}`;  // Enviar el ID como parámetro en la URL
+    a.href = `detalle.html?id=${pokeId}`;
     a.classList.add("pokemon-link");
     
     a.innerHTML = `
@@ -37,22 +37,16 @@ function mostrarPokemon(poke) {
     
     a.addEventListener('click', function() {
         localStorage.setItem('selectedPokemon', JSON.stringify(poke));
-        histo(poke);
+        agregarAlHistorial(poke); // Agregar el Pokémon al historial
     });
 
     listaPokemon.appendChild(a);
 }
 
+function agregarAlHistorial(poke) {
+    historial.push(poke);
+    localStorage.setItem('historial', JSON.stringify(historial));
+}
 
 
-
-//----------Hitorial----
-
-// const histo = (item) => {
-//     arrHistorial.push(item);
-//     localStorage.setItem('historial', JSON.stringify(arrHistorial));
-// }
-
-
-
-
+//-----------------BUSQUEDA------------------
