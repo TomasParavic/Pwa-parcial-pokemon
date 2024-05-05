@@ -50,3 +50,4 @@ function agregarAlHistorial(poke) {
 
 
 //-----------------BUSQUEDA------------------
+
