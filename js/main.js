@@ -81,5 +81,4 @@ if (document.getElementById('detallePokemon')) {
     }
 }
 
-// -------BUSCADOR--------------------------
-
+// -------HISTORIAL--------------------------

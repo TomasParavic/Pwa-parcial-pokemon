@@ -226,7 +226,7 @@ main {
 .volver-btn {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 1rem; 
 }
 
 .btn-volver {
@@ -244,3 +244,10 @@ main {
 }
 
 /* ------------------------------------ */
+nav {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100px;
+
+}
