@@ -251,3 +251,11 @@ nav {
     height: 100px;
 
 }
+
+a{
+    text-decoration: none;
+}
+
+.historialTitulo{
+    text-align: center;
+}
