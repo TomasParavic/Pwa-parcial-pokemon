@@ -51,3 +51,4 @@ function agregarAlHistorial(poke) {
 
 //-----------------BUSQUEDA------------------
 
+//no llegue :(
